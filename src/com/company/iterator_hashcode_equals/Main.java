@@ -1,9 +1,6 @@
-package com.company.hashcode_equals;
-
-import com.company.comparator_comparable.Product;
+package com.company.iterator_hashcode_equals;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Main {
