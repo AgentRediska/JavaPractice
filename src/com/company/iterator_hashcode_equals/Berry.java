@@ -21,7 +21,7 @@ public class Berry {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Berry berry = (Berry) o;
-        return Objects.equals(productName, berry.productName);
+        return Objects.equals(productName, berry.productName) && Objects.equals(this.hashCode(), berry.hashCode());
     }
 
     @Override
