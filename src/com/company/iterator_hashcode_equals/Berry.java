@@ -1,11 +1,11 @@
 package com.company.iterator_hashcode_equals;
 
-public class Product {
+public class Berry {
 
     private String productName;
     private Integer productPrice;
 
-    public Product(String productName, Integer productPrice) {
+    public Berry(String productName, Integer productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
     }
