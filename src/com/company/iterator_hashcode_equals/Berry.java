@@ -1,5 +1,7 @@
 package com.company.iterator_hashcode_equals;
 
+import java.util.Objects;
+
 public class Berry {
 
     private String productName;
@@ -12,6 +14,19 @@ public class Berry {
 
     public String getProductName() {
         return productName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Berry berry = (Berry) o;
+        return Objects.equals(productName, berry.productName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productName, productPrice);
     }
 
     public Integer getProductPrice() {

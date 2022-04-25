@@ -1,35 +1,52 @@
 package com.company.iterator_hashcode_equals;
 
-import com.sun.jndi.ldap.Ber;
+import com.company.iterator_hashcode_equals.comparator.BerryComparatorSortByName;
+import com.company.iterator_hashcode_equals.comparator.BerryComparatorSortByPrice;
 
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        List<Berry> list = createList();
+        System.out.println("List size: " + list.size());
+        printList(list);
+
+        removeIdenticalObjects(list);
+        System.out.println("List size after: " + list.size());
+        printList(list);
+
+        System.out.println("List after sort by name: ");
+        sortBerriesByName(list);
+        printList(list);
+
+        System.out.println("List after sort by price: ");
+        sortBerriesByPrice(list);
+        printList(list);
+    }
+
+    public static List<Berry> createList() {
         Berry product1 = new Berry("Cranberry", 34);
         Berry product2 = new Berry("Strawberry", 41);
         Berry product3 = new Berry("Raspberry", 3);
-        Berry product4 = new Berry("Pineapple", 10);
+        Berry product4 = new Berry("Pineapple", 111);
         Berry product5 = new Berry("Pineapple", 10);
-        Berry product6 = new Berry("Cranberry", 34);
-        Berry product7 = product1;
-        Berry product8 = product2;
+        Berry product6 = new Berry("Cranberry", 324);
 
         List<Berry> list = new ArrayList<>();
         list.add(product1);
         list.add(product2);
         list.add(product3);
-        list.add(product7);
-        list.add(product8);
         list.add(product4);
         list.add(product5);
         list.add(product6);
-        System.out.println("List size before: " + list.size());
-        removeIdenticalObjects(list);
-        System.out.println("List size after: " + list.size());
+        return list;
+    }
+
+    public static void printList(List<Berry> list) {
         for (Berry berry : list) {
-            System.out.println(berry.getProductName() + " " +berry.getProductPrice());
+            System.out.println(berry.getProductName() + " - " + berry.getProductPrice());
         }
     }
 
@@ -50,6 +67,16 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static void sortBerriesByName(List<Berry> list) {
+        Comparator comparator = new BerryComparatorSortByName();
+        list.sort(comparator);
+    }
+
+    public static void sortBerriesByPrice(List<Berry> list) {
+        Comparator comparator = new BerryComparatorSortByPrice();
+        list.sort(comparator);
     }
 
 }
