@@ -8,17 +8,12 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Shelf shelf = new Shelf();
-        setBooksToInShelf(shelf);
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Shelf shelf = setBooksToInShelf();
 
-        try {
             Shelf cloneShelf = shelf.clone();
             cloneShelf.getBook(0);
             cloneShelf.getBook(1);
-        } catch (CloneNotSupportedException ignored){
-            System.out.println("Error");
-        }
 
         List<Book> list = shelf.getBooks();
         for (Book book : list) {
@@ -26,7 +21,8 @@ public class Main {
         }
     }
 
-    public static void setBooksToInShelf(Shelf shelf) {
+    public static Shelf setBooksToInShelf() {
+        Shelf shelf = new Shelf();
         Book warBook = new WarBook("Heroes of war", "black");
         Book plotBook = new PlotBook("Tom's story", "yellow");
         Book warBook2 = new WarBook("Heroes of war 2", "black");
@@ -41,5 +37,6 @@ public class Main {
         shelf.setBook(plotBook2);
         shelf.setBook(plotBook3);
 
+        return shelf;
     }
 }
