@@ -15,24 +15,6 @@ public class Main {
         addElements(list, arrayList);
         LinkedList<Integer> linkedList = new LinkedList<>();
         addElements(list, linkedList);
-
-
-
-        //добавить элемент в конец
-
-        //добавить эемент в середину
-
-        //перебрать элементы (нужный находится в начале)
-
-        //перебрать элементы (нужный находится в середине)
-
-        //перебрать элементы (нужный находится в конце)
-
-        //удалить элемент в начале
-
-        //удалить элемент в середине
-
-        //удалить элемент в конце
     }
 
     public static List<Integer> createList() {

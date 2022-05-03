@@ -13,6 +13,8 @@ public class Main {
         System.out.println("List size: " + list.size());
         printList(list);
 
+        removeIdenticalObjectWithoutIterator(list);
+
         removeIdenticalObjects(list);
         System.out.println("List size after: " + list.size());
         printList(list);
@@ -67,6 +69,22 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static void removeIdenticalObjectWithoutIterator(List<Berry> productList) {
+        HashMap<Berry, Integer> countRepeatBerries = new HashMap<>();
+        for (Berry berry : productList) {
+            Integer count = countRepeatBerries.get(berry);
+            if ((count == null)) {
+                countRepeatBerries.put(berry, 1);
+            } else {
+                countRepeatBerries.put(berry, count + 1);
+            }
+        }
+        Set<Berry> uniqBerries = countRepeatBerries.keySet();
+        System.out.println(countRepeatBerries);
+        System.out.println(uniqBerries);
+
     }
 
     public static void sortBerriesByName(List<Berry> list) {
